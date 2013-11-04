@@ -5,7 +5,6 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "leafs/array-filter" : "*",
     "component/indexof" : "*"
   },
   "development": {

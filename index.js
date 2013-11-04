@@ -1,5 +1,20 @@
-var filter = require('filter');
 var index = require('indexof');
+
+
+/**
+ * Concat all the values into an array.
+ * @param  {Array} arr 
+ * @return {[type]}
+ * @api private
+ */
+
+function concat(arr){
+	var result = [];
+	for(var l = arr.length; l--;) {
+		result = result.concat(arr[l]);
+	}
+	return result;
+}
 
 
 /**
@@ -12,12 +27,13 @@ var index = require('indexof');
  */
 
 module.exports = function(arr) {
-	var args = [].slice.call(arguments, 1);
-	var ex = [];
-	for(var l = args.length; l--;) {
-		ex = ex.concat(args[l]);
+	var args = concat([].slice.call(arguments, 1));
+	var cache = [];
+	for(var i = 0, l = arr.length; i < l ;i++) {
+		var val = arr[i];
+		if(!!~index(args, val) && !~index(cache, val)){
+			cache.push(val);
+		}
 	}
-	return filter(arr, function(val){
-		return !!~index(ex, val);
-	});
+	return cache;
 };
