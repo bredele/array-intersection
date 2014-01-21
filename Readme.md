@@ -1,4 +1,3 @@
-
 # array-intersection
 
  Creates an array of unique values present in all provided arrays
@@ -7,7 +6,7 @@
 
   Install with [component](http://component.io):
 
-    $ component install leafs/array-intersection
+    $ component install bredele/array-intersection
 
 
 ```js
